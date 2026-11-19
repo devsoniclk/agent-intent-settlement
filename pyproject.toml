@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-intent-settlement"
+version = "0.1.0"
+description = "Autonomous Programmatic Intent Clearing & CoW-Batching Engine for Decentralized AI Agent Swarms"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Lakshitha Dananjaya", email = "dananjayarox01@gmail.com" },
+]
+keywords = [
+    "ai-agents",
+    "intent-clearing",
+    "batch-auction",
+    "coincidence-of-wants",
+    "lvr-defense",
+    "cow-swap",
+    "hyperliquid",
+    "uniswap-v4",
+    "jit-hedging",
+    "mcp",
+    "model-context-protocol",
+    "web3",
+    "defi",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = [
+    "click>=8.0.0",
+    "rich>=12.0.0",
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.20.0",
+]
+
+[project.scripts]
+agent-intent = "agent_intent_settlement.cli:main"
+agent-intent-settlement = "agent_intent_settlement.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent_intent_settlement"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
